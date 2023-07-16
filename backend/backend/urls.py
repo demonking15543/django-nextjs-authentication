@@ -19,6 +19,8 @@ from django.urls import path, include
 from rest_framework import routers, serializers, viewsets
 from cores.views import UserViewSet, CustomAuthToken, UserViewSet1
 from rest_framework.authtoken import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 user_detail = UserViewSet1.as_view({'get': 'retrieve'})
@@ -35,3 +37,5 @@ urlpatterns = [
 
     
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

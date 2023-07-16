@@ -35,6 +35,7 @@ const options = {
       if (user) {
         token.accessToken = user?.token,
         token.id=user?.user_id
+        token.user=user
       
       }
       // console.log("async token",token  )
@@ -50,6 +51,7 @@ const options = {
     if (token){
     session.accessToken=token?.accessToken
     session.id=token.id
+    session.user=token.user
     }
       return session;
     },
